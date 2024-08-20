@@ -1,16 +1,8 @@
 # fake_store_one
 
-A new Flutter project.
 
-## Getting Started
+## English
+hello, this is a challenge to make a clean ui and use dio for a request in API Rest, and the state management for that is used Bloc
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Português
+olá, esse é um desafio fazer uma ui limpa e usar dio para uma requisição na API Rest, e o gerenciamento de estado para isso é usado Bloc
