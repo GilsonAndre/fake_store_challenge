@@ -9,10 +9,6 @@ class AplicationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.black,
-        showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
             label: Strings.bottomBarHome,

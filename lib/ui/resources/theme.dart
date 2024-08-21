@@ -9,10 +9,12 @@ class ThemeApp {
         titleMedium: TextStyle(
           fontWeight: FontWeight.bold,
         ),
-        titleLarge: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 18
-        ),
+        titleLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.black,
+        showUnselectedLabels: true,
       ),
     );
   }
