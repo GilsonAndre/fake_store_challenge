@@ -1,6 +1,7 @@
 import 'package:fake_store_one/ui/pages/aplication_page.dart';
 import 'package:fake_store_one/ui/resources/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: themeApp.themeLight(),
-      home: const AplicationPage(),
+    return ScreenUtilInit(
+      child: MaterialApp(
+        theme: themeApp.themeLight(),
+        home: const AplicationPage(),
+      ),
     );
   }
 }

@@ -1,10 +1,12 @@
+import 'package:fake_store_one/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 Widget buildPage(int index) {
   List<Widget> tabs = [
-    Text('PAGINA 0'),
-    Text('PAGINA 1'),
-    Text('PAGINA 2'),
+    const HomePage(),
+    const Text('PAGINA 1'),
+    const Text('PAGINA 2'),
+    const Text('PAGINA 3'),
   ];
   return tabs[index];
 }

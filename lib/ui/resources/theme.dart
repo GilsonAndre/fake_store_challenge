@@ -5,7 +5,15 @@ class ThemeApp {
   ThemeData themeLight() {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.scaffoldBackGroundColor,
-      
+      textTheme: const TextTheme(
+        titleMedium: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        titleLarge: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18
+        ),
+      ),
     );
   }
 }

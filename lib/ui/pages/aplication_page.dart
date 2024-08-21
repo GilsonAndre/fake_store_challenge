@@ -1,3 +1,4 @@
+import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/build_page.dart';
 import 'package:flutter/material.dart';
 
@@ -7,38 +8,31 @@ class AplicationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_cart),
-            ),
-          ],
-        ),
-      ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.black,
+        showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            label: 'Home',
+            label: Strings.bottomBarHome,
             icon: Icon(Icons.house_outlined),
           ),
           BottomNavigationBarItem(
-            label: 'Search',
+            label: Strings.bottomBarSearch,
             icon: Icon(Icons.search),
           ),
           BottomNavigationBarItem(
-            label: 'Profile',
+            label: Strings.bottomBarCategory,
+            icon: Icon(Icons.list_alt_outlined),
+          ),
+          BottomNavigationBarItem(
+            label: Strings.bottomBarProfile,
             icon: Icon(Icons.person_outline),
           ),
         ],
       ),
-      body: buildPage(1),
+      body: buildPage(0),
     );
   }
 }
