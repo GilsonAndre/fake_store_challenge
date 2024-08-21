@@ -1,3 +1,4 @@
+import 'package:fake_store_one/ui/pages/detail_page.dart';
 import 'package:fake_store_one/ui/resources/colors.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/see_all_text.dart';
@@ -83,26 +84,31 @@ class HomePage extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: 18.0.w,
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 170.h,
-                          width: 140.w,
-                          decoration: const BoxDecoration(
-                            color: AppColors.listViewBackgroundColor,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DetailPage(),));
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 170.h,
+                            width: 140.w,
+                            decoration: const BoxDecoration(
+                              color: AppColors.listViewBackgroundColor,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 5.h),
-                        Text(
-                          'Title',
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                        Text(
-                          'Price',
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                      ],
+                          SizedBox(height: 5.h),
+                          Text(
+                            'Title',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                          Text(
+                            'Price',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
