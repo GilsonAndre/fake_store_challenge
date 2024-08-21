@@ -59,7 +59,10 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Text('Woman'),
+                        Text(
+                          'Woman',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       ],
                     ),
                   );

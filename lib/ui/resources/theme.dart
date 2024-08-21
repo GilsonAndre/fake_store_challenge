@@ -9,7 +9,14 @@ class ThemeApp {
         titleMedium: TextStyle(
           fontWeight: FontWeight.bold,
         ),
-        titleLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        titleLarge: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+        ),
+        bodySmall: TextStyle(
+          color: Colors.grey,
+          fontSize: 13,
+        ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         unselectedItemColor: Colors.black,
