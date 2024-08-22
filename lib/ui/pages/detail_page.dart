@@ -17,7 +17,7 @@ class DetailPage extends StatelessWidget {
             SizedBox(
               width: 10.w,
             ),
-            const Text('Detail Product'),
+            const Text(Strings.detailPage),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.shopping_cart),

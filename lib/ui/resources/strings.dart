@@ -1,5 +1,6 @@
 class Strings {
   static const String appName = 'Fake Store Challange';
+  static const String detailPage = 'Detail Product';
   static const String bottomBarHome = 'Home';
   static const String bottomBarSearch = 'Search';
   static const String bottomBarProfile = 'Profile';
