@@ -1,6 +1,6 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailPage extends StatelessWidget {
@@ -27,7 +27,7 @@ class DetailPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               height: 400.h,
@@ -36,9 +36,17 @@ class DetailPage extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                    'https://i.pinimg.com/originals/86/9c/39/869c393a21dda97716fcde368c64dada.png',
+                    'https://i.pinimg.com/originals/56/a7/5e/56a75e53bb711ad33db2c42566996ca4.jpg',
                   ),
                 ),
+              ),
+            ),
+            SizedBox(height: 10.h),
+            DotsIndicator(
+              dotsCount: 3,
+              decorator: const DotsDecorator(
+                activeColor: Colors.blue,
+                activeSize: Size(12, 12),
               ),
             ),
             Padding(

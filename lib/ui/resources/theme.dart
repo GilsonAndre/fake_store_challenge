@@ -34,7 +34,6 @@ class ThemeApp {
           shape: WidgetStatePropertyAll(
             ContinuousRectangleBorder(),
           ),
-          
         ),
       ),
     );
