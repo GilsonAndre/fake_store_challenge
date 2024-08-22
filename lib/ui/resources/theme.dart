@@ -5,17 +5,20 @@ class ThemeApp {
   ThemeData themeLight() {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.scaffoldBackGroundColor,
-      textTheme: const TextTheme(
-        titleMedium: TextStyle(
+      textTheme: TextTheme(
+        titleMedium: const TextStyle(
           fontWeight: FontWeight.bold,
         ),
-        titleLarge: TextStyle(
+        titleLarge: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: 18,
+          fontSize: 20,
         ),
-        bodySmall: TextStyle(
+        bodySmall: const TextStyle(
           color: Colors.grey,
           fontSize: 13,
+        ),
+        labelLarge: TextStyle(
+          color: Colors.grey[700],
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
