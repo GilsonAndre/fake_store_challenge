@@ -1,3 +1,4 @@
+import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -60,6 +61,44 @@ class DetailPage extends StatelessWidget {
                   Text(
                     'OverView ',
                     style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Text(
+                                Strings.addToCart,
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              SizedBox(
+                                width: 5.w,
+                              ),
+                              const Expanded(
+                                child: Icon(
+                                  Icons.shopping_cart,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            Strings.buyNow,
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

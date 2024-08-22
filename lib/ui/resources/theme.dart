@@ -18,13 +18,24 @@ class ThemeApp {
           fontSize: 13,
         ),
         labelLarge: TextStyle(
-          color: Colors.grey[700],
+          color: Colors.grey[600],
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         unselectedItemColor: Colors.black,
         selectedItemColor: Colors.black,
         showUnselectedLabels: true,
+      ),
+      outlinedButtonTheme: const OutlinedButtonThemeData(
+        style: ButtonStyle(
+          side: WidgetStatePropertyAll(
+            BorderSide(width: 2),
+          ),
+          shape: WidgetStatePropertyAll(
+            ContinuousRectangleBorder(),
+          ),
+          
+        ),
       ),
     );
   }

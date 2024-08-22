@@ -7,4 +7,6 @@ class Strings {
   static const String shopByCategory = 'Shop By Category';
   static const String seeAll = 'See All';
   static const String clothesForyou = 'Clothes For you';
+  static const String addToCart = 'ADD TO CART';
+  static const String buyNow = 'BUY NOW';
 }
