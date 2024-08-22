@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fake_store_one/data/models/category_model.dart';
 import 'package:fake_store_one/data/models/product_model.dart';
-import 'package:flutter/foundation.dart';
 
 class DioRepository {
   final Dio dio = Dio();
