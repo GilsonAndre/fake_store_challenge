@@ -47,7 +47,7 @@ class DetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
+                    padding: EdgeInsets.only(top: 8.0.h, bottom: 4.0.h),
                     child: Text(
                       'Title',
                       style: Theme.of(context).textTheme.titleLarge,
@@ -57,10 +57,13 @@ class DetailPage extends StatelessWidget {
                     'Price',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 10.h),
-                  Text(
-                    'OverView ',
-                    style: Theme.of(context).textTheme.labelLarge,
+                  //SizedBox(height: 10.h),
+                  Padding(
+                    padding: EdgeInsets.only(top: 8.0.h, bottom: 10.0.h),
+                    child: Text(
+                      'OverView ',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
                   ),
                   Row(
                     children: [
