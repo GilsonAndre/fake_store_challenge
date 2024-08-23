@@ -20,7 +20,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     emit(ProductInitial());
     try {
       emit(ProductLoading());
-      final List<ProductModel> product = await dioRepository.getProducts();
+      final List<ProductModel> product = await dioRepository.getAllProducts();
       emit(ProductSuccess(product: product));
     } catch (e) {
       emit(ProductError(error: e.toString()));
