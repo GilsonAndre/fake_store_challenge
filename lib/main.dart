@@ -1,3 +1,4 @@
+import 'package:fake_store_one/data/blocs/bloc_category/bloc/category_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
 import 'package:fake_store_one/ui/pages/aplication_page.dart';
 import 'package:fake_store_one/ui/resources/theme.dart';
@@ -20,9 +21,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ProductBloc(),
         ),
-        // BlocProvider(
-        //   create: (context) => SubjectBloc(),
-        // ),
+        BlocProvider(
+          create: (context) => CategoryBloc(),
+        ),
       ],
       child: ScreenUtilInit(
         child: MaterialApp(

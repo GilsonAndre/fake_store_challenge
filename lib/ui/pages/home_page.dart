@@ -1,3 +1,4 @@
+import 'package:fake_store_one/data/blocs/bloc_category/bloc/category_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
 import 'package:fake_store_one/ui/pages/detail_page.dart';
 import 'package:fake_store_one/ui/resources/colors.dart';
@@ -15,11 +16,13 @@ class HomePage extends StatefulWidget {
 }
 
 final ProductBloc productBloc = ProductBloc();
+final CategoryBloc categoryBloc = CategoryBloc();
 
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     productBloc.add(GetProductEvent());
+    categoryBloc.add(GetCategoryEvent());
     super.initState();
   }
 
@@ -53,37 +56,42 @@ class _HomePageState extends State<HomePage> {
             //shows every category
             seeAllText(Strings.shopByCategory, context),
             //category with photo and description
-            SizedBox(
-              height: 100.h,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(
-                itemCount: 15,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(left: 18.0.w),
-                    child: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            height: 60.h,
-                            width: 60.h,
-                            decoration: const BoxDecoration(
-                              color: Colors.grey,
-                              shape: BoxShape.circle,
+            BlocBuilder<CategoryBloc, CategoryState>(
+              bloc: categoryBloc,
+              builder: (context, state) {
+                return SizedBox(
+                  height: 100.h,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    itemCount: 15,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(left: 18.0.w),
+                        child: Column(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: 60.h,
+                                width: 60.h,
+                                decoration: const BoxDecoration(
+                                  color: Colors.grey,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
                             ),
-                          ),
+                            Text(
+                              'Woman',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
                         ),
-                        Text(
-                          'Woman',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
+                      );
+                    },
+                  ),
+                );
+              },
             ),
             //show only the clothes category
             seeAllText(Strings.clothesForyou, context),
