@@ -1,5 +1,6 @@
 import 'package:fake_store_one/data/blocs/bloc_category/bloc/category_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
+import 'package:fake_store_one/data/widgets_data/category_icon_circular.dart';
 import 'package:fake_store_one/data/widgets_data/category_list.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/see_all_text.dart';
@@ -67,43 +68,9 @@ class _HomePageState extends State<HomePage> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is CategorySuccess) {
-                  return SizedBox(
-                    height: 100.h,
-                    width: MediaQuery.of(context).size.width,
-                    child: ListView.builder(
-                      itemCount: state.category.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        final categorys = state.category[index];
-                        return Padding(
-                          padding: EdgeInsets.only(left: 18.0.w),
-                          child: Column(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Container(
-                                  height: 60.h,
-                                  width: 60.h,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: NetworkImage(categorys.image!),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                categorys.name.toString(),
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  );
+                  return CategoryIconCircular(category: state.category);
                 }
-                return const Text('ERROR');
+                return const SizedBox();
               },
             ),
             //show only the clothes category
