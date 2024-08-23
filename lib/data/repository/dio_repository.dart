@@ -15,12 +15,11 @@ class DioRepository {
           (e) => ProductModel.fromJson(e),
         )
         .toList();
-    print('PRODUCTS $results');
-    print(results.length);
+   
     return products;
   }
   Future<List<CategoryModel>> getCategory() async {
-    final response = await dio.get('https://api.escuelajs.co/api/v1/products');
+    final response = await dio.get('https://api.escuelajs.co/api/v1/categories');
 
     List<dynamic> results = response.data;
 
@@ -29,7 +28,7 @@ class DioRepository {
           (e) => CategoryModel.fromJson(e),
         )
         .toList();
-    print('CATEGORY $category');
+    print('CATEGORY $results');
     print(results.length);
     return category;
   }

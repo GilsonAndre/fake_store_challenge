@@ -59,38 +59,52 @@ class _HomePageState extends State<HomePage> {
             BlocBuilder<CategoryBloc, CategoryState>(
               bloc: categoryBloc,
               builder: (context, state) {
-                return SizedBox(
-                  height: 100.h,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    itemCount: 15,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 18.0.w),
-                        child: Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                height: 60.h,
-                                width: 60.h,
-                                decoration: const BoxDecoration(
-                                  color: Colors.grey,
-                                  shape: BoxShape.circle,
+                if (state is CategoryError) {
+                  const Center(
+                    child: Text('Something went Wrong'),
+                  );
+                } else if (state is CategoryLoading) {
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is CategorySuccess) {
+                  return SizedBox(
+                    height: 100.h,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView.builder(
+                      itemCount: state.category.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final categorys = state.category[index];
+                        return Padding(
+                          padding: EdgeInsets.only(left: 18.0.w),
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                  height: 60.h,
+                                  width: 60.h,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      image: NetworkImage(categorys.image!),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              'Woman',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                );
+                              Text(
+                                categorys.name.toString(),
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                }
+                return const Text('ERROR');
               },
             ),
             //show only the clothes category
