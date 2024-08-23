@@ -12,6 +12,7 @@ class ThemeApp {
         titleLarge: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
+          overflow: TextOverflow.ellipsis
         ),
         bodySmall: const TextStyle(
           color: Colors.grey,

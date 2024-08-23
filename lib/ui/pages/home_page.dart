@@ -125,18 +125,29 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 Container(
                                   height: 170.h,
-                                  width: 140.w,
-                                  decoration: const BoxDecoration(
+                                  width: 160.w,
+                                  decoration: BoxDecoration(
                                     color: AppColors.listViewBackgroundColor,
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: NetworkImage(
+                                        products.images!.first,
+                                      ),
+                                    ),
                                   ),
+                                  // child: Image.network(products.images!.first),
                                 ),
                                 SizedBox(height: 5.h),
-                                Text(
-                                  products.title.toString(),
-                                  style: Theme.of(context).textTheme.titleLarge,
+                                SizedBox(
+                                  width: 160,
+                                  child: Text(
+                                    products.title.toString(),
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
+                                  ),
                                 ),
                                 Text(
-                                  products.price.toString(),
+                                  'US\$ ${products.price.toString()},00',
                                   style: Theme.of(context).textTheme.titleLarge,
                                 ),
                               ],
@@ -147,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 } else {
-                  return Text('ERROR');
+                  return const Text('ERROR');
                 }
               },
             )
