@@ -1,7 +1,7 @@
 import 'package:fake_store_one/data/blocs/bloc_category/bloc/category_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
-import 'package:fake_store_one/data/widgets_data/category_icon_circular.dart';
-import 'package:fake_store_one/data/widgets_data/category_list.dart';
+import 'package:fake_store_one/ui/widgets/category_icon_circular.dart';
+import 'package:fake_store_one/ui/widgets/category_list.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/see_all_text.dart';
 import 'package:flutter/material.dart';
