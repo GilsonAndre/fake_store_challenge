@@ -13,7 +13,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   }
   final DioRepository dioRepository = DioRepository();
 
-  FutureOr<void> _getProducts(
+  Future<void> _getProducts(
     GetProductEvent event,
     Emitter<ProductState> emit,
   ) async {

@@ -91,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                   return CategoryList(
                     context: context,
                     product: state.product,
+                    
                   );
                 } else {
                   return const Text('ERROR');

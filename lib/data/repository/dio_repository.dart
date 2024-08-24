@@ -14,7 +14,8 @@ class DioRepository {
           (e) => ProductModel.fromJson(e),
         )
         .toList();
-
+    print('CATEGORY $results');
+    print(results.length);
     return products;
   }
 
@@ -29,8 +30,6 @@ class DioRepository {
           (e) => CategoryModel.fromJson(e),
         )
         .toList();
-    print('CATEGORY $results');
-    print(results.length);
     return category;
   }
 }

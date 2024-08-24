@@ -1,7 +1,7 @@
 part of 'product_bloc.dart';
 
 abstract class ProductState {
-  ProductState();
+  const ProductState();
 }
 
 class ProductInitial extends ProductState {}

@@ -1,7 +1,7 @@
 part of 'product_bloc.dart';
 
 abstract class ProductEvent {
-  ProductEvent();
+  const ProductEvent();
 }
 
 class GetProductEvent extends ProductEvent {}
