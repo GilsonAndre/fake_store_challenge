@@ -15,7 +15,7 @@ class DetailPage extends StatefulWidget {
     required this.title,
     required this.price,
     required this.description,
-    required this.images, 
+    required this.images,
     required this.product,
   });
   final int id;
@@ -45,18 +45,31 @@ class _DetailPageState extends State<DetailPage> {
                   width: 10.w,
                 ),
                 const Text(Strings.detailPage),
-                IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CartPage(
-                          
+                Stack(
+                  children: [
+                    Positioned(
+                      left: 30.w,
+                      child: SizedBox(
+                        height: 20.h,
+                        width: 20.w,
+                        child: Text(
+                          state.productId.length.toString(),
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),
-                    );
-                  },
-                  icon: const Icon(Icons.shopping_cart),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CartPage(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.shopping_cart),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -124,7 +137,6 @@ class _DetailPageState extends State<DetailPage> {
                                 context
                                     .read<CartBloc>()
                                     .add(AddProductCart(widget.product));
-                                
                               },
                               child: Row(
                                 children: [

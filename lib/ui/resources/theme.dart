@@ -18,6 +18,12 @@ class ThemeApp {
           color: Colors.grey,
           fontSize: 13,
         ),
+        bodyMedium: const TextStyle(
+          color: Colors.black,
+
+          fontWeight: FontWeight.bold,
+          fontSize: 13,
+        ),
         labelLarge: TextStyle(
           color: Colors.grey[600],
         ),

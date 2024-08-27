@@ -18,7 +18,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     final cartList = List<ProductModel>.from(state.productId)
       ..add(event.productId);
 
-
     emit(CartState(cartList));
   }
 }
