@@ -1,7 +1,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:fake_store_one/data/blocs/bloc_cart/bloc/cart_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
+import 'package:fake_store_one/data/models/product_model.dart';
+import 'package:fake_store_one/ui/pages/cart_page.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailPage extends StatefulWidget {
@@ -11,106 +15,115 @@ class DetailPage extends StatefulWidget {
     required this.title,
     required this.price,
     required this.description,
-    required this.images,
+    required this.images, 
+    required this.product,
   });
   final int id;
   final String title;
   final String price;
   final String description;
   final List<String> images;
+  final ProductModel product;
 
   @override
   State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-  
   final ProductBloc productBloc = ProductBloc();
   @override
-  void initState() {
-    productBloc.add(GetProductEvent());
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              width: 10.w,
-            ),
-            const Text(Strings.detailPage),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_cart),
-            ),
-          ],
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 400.h,
-              width: MediaQuery.of(context).size.width,
-              child: PageView.builder(
-                itemCount: widget.images.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Expanded(
-                        child: Image.network(
-                          widget.images[index],
-                          fit: BoxFit.fill,
+    return BlocBuilder<CartBloc, CartState>(
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 10.w,
+                ),
+                const Text(Strings.detailPage),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CartPage(
+                          
                         ),
                       ),
-                      DotsIndicator(
-                        dotsCount: widget.images.length,
-                        position: index,
-                        decorator: const DotsDecorator(
-                          activeColor: Colors.blue,
-                          activeSize: Size(12, 12),
+                    );
+                  },
+                  icon: const Icon(Icons.shopping_cart),
+                ),
+              ],
+            ),
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 400.h,
+                  width: MediaQuery.of(context).size.width,
+                  child: PageView.builder(
+                    itemCount: widget.images.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Expanded(
+                            child: Image.network(
+                              widget.images[index],
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          DotsIndicator(
+                            dotsCount: widget.images.length,
+                            position: index,
+                            decorator: const DotsDecorator(
+                              activeColor: Colors.blue,
+                              activeSize: Size(12, 12),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.0.h, bottom: 4.0.h),
+                        child: Text(
+                          widget.title,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),
-                    ],
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: 10.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 8.0.h, bottom: 4.0.h),
-                    child: Text(
-                      widget.title,
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                  ),
-                  Text(
-                    'US\$ ${widget.price.toString()},00',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8.0.h, bottom: 10.0.h),
-                    child: Text(
-                      widget.description,
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child:  OutlinedButton(
+                      Text(
+                        'US\$ ${widget.price.toString()},00',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.0.h, bottom: 10.0.h),
+                        child: Text(
+                          widget.description,
+                          style: Theme.of(context).textTheme.labelLarge,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: OutlinedButton(
                               onPressed: () {
+                                context
+                                    .read<CartBloc>()
+                                    .add(AddProductCart(widget.product));
                                 
                               },
                               child: Row(
@@ -132,50 +145,29 @@ class _DetailPageState extends State<DetailPage> {
                                 ],
                               ),
                             ),
-                      ),
-                          
-                        
-                      
-                      SizedBox(
-                        width: 15.w,
-                      ),
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: () {},
-                          child: Text(
-                            Strings.buyNow,
-                            style: Theme.of(context).textTheme.titleMedium,
                           ),
-                        ),
+                          SizedBox(
+                            width: 15.w,
+                          ),
+                          Expanded(
+                            child: OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                Strings.buyNow,
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
-
-// ListView.builder(
-//                 scrollDirection: Axis.horizontal,
-//                 itemCount: widget.images.length,
-//                 itemBuilder: (context, index) {
-//                   return Column(
-//                     children: [
-//                       Expanded(child: Image.network(widget.images[index], fit: BoxFit.fill,)),
-//                       DotsIndicator(
-//                         dotsCount: widget.images.length,
-//                         position: index,
-//                         decorator: const DotsDecorator(
-//                           activeColor: Colors.blue,
-//                           activeSize: Size(12, 12),
-//                         ),
-//                       ),
-//                     ],
-//                   );
-//                 },
-//               ),

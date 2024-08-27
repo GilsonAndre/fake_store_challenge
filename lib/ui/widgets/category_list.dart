@@ -38,7 +38,7 @@ class CategoryList extends StatelessWidget {
                       price: products.price.toString(),
                       description: products.description.toString(),
                       images: products.images!,
-                      
+                      product: products,
                     ),
                   ),
                 );
