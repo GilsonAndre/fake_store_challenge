@@ -32,45 +32,38 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            ),
-            BlocBuilder<CartBloc, CartState>(
-              builder: (context, state) {
-                return Stack(
-                  children: [
-                    Positioned(
-                      left: 30.w,
-                      child: SizedBox(
-                        height: 20.h,
-                        width: 20.w,
-                        child: Text(
-                          state.productId.length.toString(),
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
+        actions: [
+          BlocBuilder<CartBloc, CartState>(
+            builder: (context, state) {
+              return Stack(
+                children: [
+                  Positioned(
+                    left: 30.w,
+                    child: SizedBox(
+                      height: 20.h,
+                      width: 20.w,
+                      child: Text(
+                        state.productId.length.toString(),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CartPage(),
-                          ),
-                        );
-                      },
-                      icon: const Icon(Icons.shopping_cart),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ],
-        ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CartPage(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.shopping_cart),
+                  ),
+                ],
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

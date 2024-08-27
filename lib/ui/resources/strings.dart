@@ -11,4 +11,5 @@ class Strings {
   static const String addToCart = 'ADD TO CART';
   static const String buyNow = 'BUY NOW';
   static const String cart = 'Cart';
+  static const String cartEmpty = 'Your cart is empty let\'s buy something';
 }

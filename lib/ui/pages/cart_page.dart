@@ -8,33 +8,39 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CartBloc, CartState>(
-      builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text(Strings.cart),
-          ),
-          body: ListView.builder(
-            itemCount: state.productId.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(state.productId[index].title.toString()),
-                subtitle:
-                    Text('US\$ ${state.productId[index].price.toString()},00'),
-                leading: Image.network(state.productId[index].images!.first),
-                trailing: IconButton(
-                  onPressed: () {
-                    context
-                        .read<CartBloc>()
-                        .add(RemoveFromProductCart(state.productId[index]));
-                  },
-                  icon: const Icon(Icons.remove_shopping_cart),
-                ),
-              );
-            },
-          ),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(Strings.cart),
+      ),
+      body: BlocBuilder<CartBloc, CartState>(
+        builder: (context, state) {
+          if (state.productId.isNotEmpty) {
+            return ListView.builder(
+              itemCount: state.productId.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(state.productId[index].title.toString()),
+                  subtitle: Text(
+                      'US\$ ${state.productId[index].price.toString()},00'),
+                  leading: Image.network(state.productId[index].images!.first),
+                  trailing: IconButton(
+                    onPressed: () {
+                      context
+                          .read<CartBloc>()
+                          .add(RemoveFromProductCart(state.productId[index]));
+                    },
+                    icon: const Icon(Icons.remove_shopping_cart),
+                  ),
+                );
+              },
+            );
+          } else {
+            return const Center(
+              child: Text(Strings.cartEmpty),
+            );
+          }
+        },
+      ),
     );
   }
 }

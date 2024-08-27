@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 class ThemeApp {
   ThemeData themeLight() {
     return ThemeData(
+      appBarTheme: const AppBarTheme(
+        color: AppColors.scaffoldBackGroundColor,
+      ),
       scaffoldBackgroundColor: AppColors.scaffoldBackGroundColor,
       textTheme: TextTheme(
         titleMedium: const TextStyle(
