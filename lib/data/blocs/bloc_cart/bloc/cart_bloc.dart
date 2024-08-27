@@ -9,6 +9,7 @@ part 'cart_state.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartState([])) {
     on<AddProductCart>(_addProcutCart);
+    on<RemoveFromProductCart>(_removeProcutFromCart);
   }
 
   FutureOr<void> _addProcutCart(
@@ -17,6 +18,16 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   ) {
     final cartList = List<ProductModel>.from(state.productId)
       ..add(event.productId);
+
+    emit(CartState(cartList));
+  }
+
+  FutureOr<void> _removeProcutFromCart(
+    RemoveFromProductCart event,
+    Emitter<CartState> emit,
+  ) {
+    final cartList =
+        List<ProductModel>.from(state.productId)..remove(event.productId);
 
     emit(CartState(cartList));
   }

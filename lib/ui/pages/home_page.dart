@@ -1,5 +1,7 @@
+import 'package:fake_store_one/data/blocs/bloc_cart/bloc/cart_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_category/bloc/category_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
+import 'package:fake_store_one/ui/pages/cart_page.dart';
 import 'package:fake_store_one/ui/widgets/category_icon_circular.dart';
 import 'package:fake_store_one/ui/widgets/category_list.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
@@ -37,9 +39,35 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {},
               icon: const Icon(Icons.menu),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_cart),
+            BlocBuilder<CartBloc, CartState>(
+              builder: (context, state) {
+                return Stack(
+                  children: [
+                    Positioned(
+                      left: 30.w,
+                      child: SizedBox(
+                        height: 20.h,
+                        width: 20.w,
+                        child: Text(
+                          state.productId.length.toString(),
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CartPage(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.shopping_cart),
+                    ),
+                  ],
+                );
+              },
             ),
           ],
         ),
@@ -91,7 +119,6 @@ class _HomePageState extends State<HomePage> {
                   return CategoryList(
                     context: context,
                     product: state.product,
-                    
                   );
                 } else {
                   return const Text('ERROR');

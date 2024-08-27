@@ -10,4 +10,8 @@ class AddProductCart extends CartEvent {
   AddProductCart(this.productId);
 }
 
-class RemoveFromProductCart extends CartEvent {}
+class RemoveFromProductCart extends CartEvent {
+  final ProductModel productId;
+
+  RemoveFromProductCart(this.productId);
+}
