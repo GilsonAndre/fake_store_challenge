@@ -1,6 +1,7 @@
 class Strings {
-  static const String appName = 'Fake Store Challange';
+  static const String appName = 'Fake Store';
   static const String detailPage = 'Detail Product';
+  //BottomNavigator label
   static const String bottomBarHome = 'Home';
   static const String bottomBarSearch = 'Search';
   static const String bottomBarProfile = 'Profile';
@@ -12,4 +13,5 @@ class Strings {
   static const String buyNow = 'BUY NOW';
   static const String cart = 'Cart';
   static const String cartEmpty = 'Your cart is empty let\'s buy something';
+  static const String errorMessage = 'Something went Wrong';
 }

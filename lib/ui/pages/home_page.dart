@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text(Strings.appName),
         actions: [
           BlocBuilder<CartBloc, CartState>(
             builder: (context, state) {
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage> {
               builder: (context, state) {
                 if (state is CategoryError) {
                   const Center(
-                    child: Text('Something went Wrong'),
+                    child: Text(Strings.errorMessage),
                   );
                 } else if (state is CategoryLoading) {
                   const Center(
@@ -102,7 +103,7 @@ class _HomePageState extends State<HomePage> {
               builder: (context, state) {
                 if (state is ProductError) {
                   return const Center(
-                    child: Text('Something went wrong'),
+                    child: Text(Strings.errorMessage),
                   );
                 } else if (state is ProductLoading) {
                   return const Center(
@@ -114,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                     product: state.product,
                   );
                 } else {
-                  return const Text('ERROR');
+                  return const Text(Strings.errorMessage);
                 }
               },
             )
