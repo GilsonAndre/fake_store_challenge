@@ -5,3 +5,4 @@ abstract class ProductEvent {
 }
 
 class GetProductEvent extends ProductEvent {}
+class GetProductFromCategoryEvent extends ProductEvent {}

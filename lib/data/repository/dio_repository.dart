@@ -31,7 +31,7 @@ class DioRepository {
     return category;
   }
 
-  Future<List<ProductModel>> getProductsFromOneCategory(int id) async {
+  Future<List<ProductModel>> getProductsFromCategory(int id) async {
     final response =
         await dio.get('https://api.escuelajs.co/api/v1/categories/$id/products');
 

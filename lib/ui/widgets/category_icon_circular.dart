@@ -1,4 +1,5 @@
 import 'package:fake_store_one/data/models/category_model.dart';
+import 'package:fake_store_one/ui/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +23,14 @@ class CategoryIconCircular extends StatelessWidget {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchPage(),
+                      ),
+                    );
+                  },
                   child: Container(
                     height: 60.h,
                     width: 60.h,

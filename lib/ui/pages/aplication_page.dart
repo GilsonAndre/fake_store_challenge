@@ -32,10 +32,6 @@ class _AplicationPageState extends State<AplicationPage> {
                 icon: Icon(Icons.search),
               ),
               BottomNavigationBarItem(
-                label: Strings.bottomBarCategory,
-                icon: Icon(Icons.list_alt_outlined),
-              ),
-              BottomNavigationBarItem(
                 label: Strings.bottomBarProfile,
                 icon: Icon(Icons.person_outline),
               ),

@@ -26,4 +26,5 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       emit(ProductError(error: e.toString()));
     }
   }
+  
 }

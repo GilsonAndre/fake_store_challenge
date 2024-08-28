@@ -6,7 +6,6 @@ Widget buildPage(int index) {
     const HomePage(),
     const Text('PAGINA 1'),
     const Text('PAGINA 2'),
-    const Text('PAGINA 3'),
   ];
   return tabs[index];
 }
