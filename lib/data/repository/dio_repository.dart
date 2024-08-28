@@ -17,7 +17,7 @@ class DioRepository {
     return products;
   }
 
-  Future<List<CategoryModel>> getCategory() async {
+  Future<List<CategoryModel>> getAllCategory() async {
     final response =
         await dio.get('https://api.escuelajs.co/api/v1/categories');
 
@@ -29,5 +29,19 @@ class DioRepository {
         )
         .toList();
     return category;
+  }
+
+  Future<List<ProductModel>> getProductsFromOneCategory(int id) async {
+    final response =
+        await dio.get('https://api.escuelajs.co/api/v1/categories/$id/products');
+
+    List<dynamic> results = response.data;
+
+    final List<ProductModel> product = results
+        .map(
+          (e) => ProductModel.fromJson(e),
+        )
+        .toList();
+    return product;
   }
 }

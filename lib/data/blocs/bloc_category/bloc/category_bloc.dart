@@ -19,7 +19,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     try {
       emit(CategoryLoading());
 
-      final List<CategoryModel> category = await dioRepository.getCategory();
+      final List<CategoryModel> category = await dioRepository.getAllCategory();
 
       emit(CategorySuccess(category: category));
     } catch (e) {

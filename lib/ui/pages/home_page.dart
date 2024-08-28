@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 final ProductBloc productBloc = ProductBloc();
-final CategoryBloc categoryBloc = CategoryBloc();
+ final CategoryBloc categoryBloc = CategoryBloc();
 
 class _HomePageState extends State<HomePage> {
   @override
