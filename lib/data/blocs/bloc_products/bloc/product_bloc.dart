@@ -10,6 +10,7 @@ part 'product_state.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   ProductBloc() : super(ProductInitial()) {
     on<GetProductEvent>(_getProducts);
+    on<GetProductFromCategoryEvent>(_getProductFromCategoryEvent);
   }
   final DioRepository dioRepository = DioRepository();
 
@@ -27,4 +28,17 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     }
   }
   
+  Future<void> _getProductFromCategoryEvent(
+    GetProductFromCategoryEvent event,
+    Emitter<ProductState> emit,
+  ) async {
+    emit(ProductInitial());
+    try {
+      emit(ProductLoading());
+      final List<ProductModel> product = await dioRepository.getProductsFromCategory(event.id);
+      emit(ProductSuccess(product: product));
+    } catch (e) {
+      emit(ProductError(error: e.toString()));
+    }
+  }
 }

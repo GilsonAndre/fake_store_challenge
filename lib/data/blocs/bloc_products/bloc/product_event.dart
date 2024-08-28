@@ -5,4 +5,9 @@ abstract class ProductEvent {
 }
 
 class GetProductEvent extends ProductEvent {}
-class GetProductFromCategoryEvent extends ProductEvent {}
+
+class GetProductFromCategoryEvent extends ProductEvent {
+  final int id;
+
+  GetProductFromCategoryEvent(this.id);
+}
