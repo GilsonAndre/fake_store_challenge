@@ -17,7 +17,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   void initState() {
-    productBloc.add(GetProductFromCategoryEvent(3));
+    productBloc.add(GetProductFromCategoryEvent(5));
     super.initState();
   }
 
@@ -55,14 +55,13 @@ class _SearchPageState extends State<SearchPage> {
                 return SizedBox(
                   height: MediaQuery.of(context).size.height,
                   child: GridView.builder(
-                    padding: EdgeInsets.only(top: 10.h, bottom: 80.h),
+                    padding: EdgeInsets.only(top: 10.h, bottom: 130.h),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
-                      mainAxisExtent:300,
-                      
+                      mainAxisExtent: 300,
                     ),
                     itemCount: state.product.length,
                     itemBuilder: (context, index) {
