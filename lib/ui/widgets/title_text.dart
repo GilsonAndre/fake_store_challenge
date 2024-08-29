@@ -1,9 +1,8 @@
-import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-//widget responsable for do category + see all
-Widget seeAllText(String categoryName, BuildContext context) {
+//widget responsable for title
+Widget titleText(String categoryName, BuildContext context) {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 18.0.w),
     child: Row(
@@ -12,13 +11,6 @@ Widget seeAllText(String categoryName, BuildContext context) {
         Text(
           categoryName,
           style: Theme.of(context).textTheme.titleMedium,
-        ),
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            Strings.seeAll,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
         ),
       ],
     ),
