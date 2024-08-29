@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
-
+  const SearchPage({super.key, required this.id});
+  final int id;
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
@@ -17,7 +17,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   void initState() {
-    productBloc.add(GetProductFromCategoryEvent(5));
+    productBloc.add(GetProductFromCategoryEvent(widget.id));
     super.initState();
   }
 
@@ -115,7 +115,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 );
               }
-              return Text('data');
+              return const Text(Strings.errorMessage);
             },
           ),
         ),

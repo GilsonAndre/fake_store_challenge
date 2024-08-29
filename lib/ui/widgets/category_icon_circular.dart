@@ -27,7 +27,7 @@ class CategoryIconCircular extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const SearchPage(),
+                        builder: (context) =>  SearchPage(id: categorys.id!,),
                       ),
                     );
                   },
