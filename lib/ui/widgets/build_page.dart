@@ -7,7 +7,7 @@ Widget buildPage(
 ) {
   List<Widget> tabs = [
     const HomePage(),
-    const SearchPage(id: 1),
+    const SearchPage(id: 2),
     const Text('PAGINA 2'),
   ];
   return tabs[index];

@@ -15,7 +15,10 @@ class ThemeApp {
         titleLarge: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
-          overflow: TextOverflow.ellipsis
+          overflow: TextOverflow.ellipsis,
+        ),
+        headlineSmall: const TextStyle(
+          fontWeight: FontWeight.bold,
         ),
         bodySmall: const TextStyle(
           color: Colors.grey,
@@ -23,7 +26,6 @@ class ThemeApp {
         ),
         bodyMedium: const TextStyle(
           color: Colors.black,
-
           fontWeight: FontWeight.bold,
           fontSize: 13,
         ),
@@ -44,6 +46,17 @@ class ThemeApp {
           shape: WidgetStatePropertyAll(
             ContinuousRectangleBorder(),
           ),
+        ),
+      ),
+      //TextField
+      inputDecorationTheme: const InputDecorationTheme(
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.black,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
         ),
       ),
     );

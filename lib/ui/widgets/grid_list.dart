@@ -22,8 +22,7 @@ class GridList extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          mainAxisExtent: 300,
+          mainAxisExtent: 320,
         ),
         itemCount: product.length,
         itemBuilder: (context, index) {

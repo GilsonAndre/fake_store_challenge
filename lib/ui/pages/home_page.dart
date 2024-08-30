@@ -98,6 +98,7 @@ class _HomePageState extends State<HomePage> {
             ),
             //show everything
             titleText(Strings.everythingForyou, context),
+            SizedBox(height: 10.h),
             //show all clothes
             BlocBuilder<ProductBloc, ProductState>(
               bloc: productBloc,

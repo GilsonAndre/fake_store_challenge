@@ -115,7 +115,7 @@ class _DetailPageState extends State<DetailPage> {
                         padding: EdgeInsets.only(top: 8.0.h, bottom: 4.0.h),
                         child: Text(
                           widget.title,
-                          style: Theme.of(context).textTheme.titleLarge,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ),
                       Text(
@@ -129,48 +129,51 @@ class _DetailPageState extends State<DetailPage> {
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: OutlinedButton(
-                              onPressed: () {
-                                context
-                                    .read<CartBloc>()
-                                    .add(AddProductCart(widget.product));
-                              },
-                              child: Row(
-                                children: [
-                                  Text(
-                                    Strings.addToCart,
-                                    style:
-                                        Theme.of(context).textTheme.titleMedium,
-                                  ),
-                                  SizedBox(
-                                    width: 5.w,
-                                  ),
-                                  const Expanded(
-                                    child: Icon(
-                                      Icons.shopping_cart,
-                                      color: Colors.black,
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  context
+                                      .read<CartBloc>()
+                                      .add(AddProductCart(widget.product));
+                                },
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      Strings.addToCart,
+                                      style:
+                                          Theme.of(context).textTheme.titleMedium,
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(
+                                      width: 5.w,
+                                    ),
+                                    const Expanded(
+                                      child: Icon(
+                                        Icons.shopping_cart,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Expanded(
-                            child: OutlinedButton(
-                              onPressed: () {},
-                              child: Text(
-                                Strings.buyNow,
-                                style: Theme.of(context).textTheme.titleMedium,
+                            SizedBox(
+                              width: 15.w,
+                            ),
+                            Expanded(
+                              child: OutlinedButton(
+                                onPressed: () {},
+                                child: Text(
+                                  Strings.buyNow,
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),

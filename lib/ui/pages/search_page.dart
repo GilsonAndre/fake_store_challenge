@@ -26,15 +26,7 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         title: const TextField(
           decoration: InputDecoration(
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.black,
-              ),
-            ),
-            hintText: 'Clothes',
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black),
-            ),
+            hintText: Strings.hintTextSearchPage,
           ),
         ),
       ),
