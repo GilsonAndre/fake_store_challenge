@@ -15,3 +15,14 @@ class RemoveFromProductCart extends CartEvent {
 
   RemoveFromProductCart(this.productId);
 }
+
+class SumFromProductCart extends CartEvent {
+  final int cartList;
+
+  SumFromProductCart(this.cartList);
+}
+class MinusFromProductCart extends CartEvent {
+  final int cartList;
+
+  MinusFromProductCart(this.cartList);
+}

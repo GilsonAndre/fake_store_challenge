@@ -139,13 +139,16 @@ class _DetailPageState extends State<DetailPage> {
                                   context
                                       .read<CartBloc>()
                                       .add(AddProductCart(widget.product));
+                                  context.read<CartBloc>().add(
+                                      SumFromProductCart(widget.price.length));
                                 },
                                 child: Row(
                                   children: [
                                     Text(
                                       Strings.addToCart,
-                                      style:
-                                          Theme.of(context).textTheme.titleMedium,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium,
                                     ),
                                     SizedBox(
                                       width: 5.w,
@@ -168,7 +171,8 @@ class _DetailPageState extends State<DetailPage> {
                                 onPressed: () {},
                                 child: Text(
                                   Strings.buyNow,
-                                  style: Theme.of(context).textTheme.titleMedium,
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                               ),
                             ),
