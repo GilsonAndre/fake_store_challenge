@@ -45,14 +45,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     print(cartList);
     emit((state.copyWith(cartList: cartList)));
   }
-  
+
   FutureOr<void> _minusFromProductCart(
     MinusFromProductCart event,
     Emitter<CartState> emit,
   ) {
     int cartList = state.productId.fold(
       0,
-      (total, current) => current.price!.toInt() - total,
+      (total, current) => total + current.price!.toInt(),
     );
     print(cartList);
     emit((state.copyWith(cartList: cartList)));
