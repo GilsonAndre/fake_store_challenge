@@ -16,6 +16,8 @@ class GridList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      //do a gridview 2/2 
+      //i use that in search page and home page
       height: MediaQuery.of(context).size.height,
       child: GridView.builder(
         padding: EdgeInsets.only(top: 10.h, bottom: 140.h),

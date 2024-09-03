@@ -10,6 +10,7 @@ class CategoryIconCircular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //circle widget send you to search page with all products for category you choose
     return SizedBox(
       height: 100.h,
       width: MediaQuery.of(context).size.width,

@@ -14,6 +14,8 @@ class CartPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(Strings.cart),
       ),
+      //Show how much you need pay
+      //Button with checkOut name for go to payment page but if is empty you cant go
       bottomSheet: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: 90.h,
@@ -47,9 +49,9 @@ class CartPage extends StatelessWidget {
                       child: OutlinedButton(
                         onPressed: () {
                           if (state.productId.isEmpty) {
-                            
+                            //toastInfo for show error
                           } else {
-
+                            //Go to Buy everything
                           }
                         },
                         child: Text(
@@ -65,6 +67,8 @@ class CartPage extends StatelessWidget {
           ),
         ),
       ),
+      //show all products, price e photos in a listtile
+      //when you click you go to detail page if you want check anything before buy 
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state.productId.isNotEmpty) {
@@ -73,6 +77,7 @@ class CartPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () {
+                    //todo: named routes
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => DetailPage(
@@ -90,6 +95,7 @@ class CartPage extends StatelessWidget {
                   subtitle: Text(
                       'US\$ ${state.productId[index].price.toString()},00'),
                   leading: Image.network(state.productId[index].images!.first),
+                  //remove and minus a product from cart
                   trailing: IconButton(
                     onPressed: () {
                       context

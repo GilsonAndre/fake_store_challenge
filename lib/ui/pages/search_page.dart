@@ -16,6 +16,7 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   void initState() {
+    //get id from category and shows all products
     productBloc.add(GetProductFromCategoryEvent(widget.id));
     super.initState();
   }
@@ -43,7 +44,10 @@ class _SearchPageState extends State<SearchPage> {
                   child: CircularProgressIndicator(),
                 );
               } else if (state is ProductSuccess) {
-                return GridList(context: context, product: state.product);
+                return GridList(
+                  context: context,
+                  product: state.product,
+                );
               }
               return const Text(Strings.errorMessage);
             },

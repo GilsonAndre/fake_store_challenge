@@ -8,6 +8,7 @@ Widget buildPage(
   List<Widget> tabs = [
     const HomePage(),
     const SearchPage(id: 2),
+    //Todo: profile page
     const Text('PAGINA 2'),
   ];
   return tabs[index];

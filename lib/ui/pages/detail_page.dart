@@ -36,6 +36,8 @@ class _DetailPageState extends State<DetailPage> {
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return Scaffold(
+          //cart with title and cart button
+          //if you add any thing shows a little number for you know how many are there
           appBar: AppBar(
             centerTitle: true,
             title: Row(
@@ -134,6 +136,7 @@ class _DetailPageState extends State<DetailPage> {
                         child: Row(
                           children: [
                             Expanded(
+                              //responsable for add and sum a new product
                               child: OutlinedButton(
                                 onPressed: () {
                                   context
@@ -168,6 +171,7 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                             Expanded(
                               child: OutlinedButton(
+                                //todo: go to payment page 
                                 onPressed: () {},
                                 child: Text(
                                   Strings.buyNow,
