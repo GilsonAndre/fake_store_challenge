@@ -42,7 +42,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       0,
       (total, current) => total + current.price!.toInt(),
     );
-    print(cartList);
     emit((state.copyWith(cartList: cartList)));
   }
 
@@ -54,7 +53,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       0,
       (total, current) => total + current.price!.toInt(),
     );
-    print(cartList);
     emit((state.copyWith(cartList: cartList)));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:fake_store_one/data/blocs/bloc_cart/bloc/cart_bloc.dart';
+import 'package:fake_store_one/ui/pages/detail_page.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,20 +22,45 @@ class CartPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(children: [
-                Text(
-                  'Total: ',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                BlocBuilder<CartBloc, CartState>(
-                  builder: (context, state) {
-                    return Text(
-                      'US\$ ${state.cartList},00',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    );
-                  },
-                ),
-              ]),
+              Row(
+                children: [
+                  Text(
+                    'Total: ',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  BlocBuilder<CartBloc, CartState>(
+                    builder: (context, state) {
+                      return Text(
+                        'US\$ ${state.cartList},00',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      );
+                    },
+                  ),
+                ],
+              ),
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          if (state.productId.isEmpty) {
+                            
+                          } else {
+
+                          }
+                        },
+                        child: Text(
+                          'Checkout',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -46,6 +72,20 @@ class CartPage extends StatelessWidget {
               itemCount: state.productId.length,
               itemBuilder: (context, index) {
                 return ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(
+                          id: state.productId[index].id!,
+                          title: state.productId[index].title!,
+                          price: state.productId[index].price.toString(),
+                          description: state.productId[index].description!,
+                          images: state.productId[index].images!,
+                          product: state.productId.first,
+                        ),
+                      ),
+                    );
+                  },
                   title: Text(state.productId[index].title.toString()),
                   subtitle: Text(
                       'US\$ ${state.productId[index].price.toString()},00'),

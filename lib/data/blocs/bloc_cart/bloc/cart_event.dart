@@ -21,6 +21,7 @@ class SumFromProductCart extends CartEvent {
 
   SumFromProductCart(this.cartList);
 }
+
 class MinusFromProductCart extends CartEvent {
   final int cartList;
 
