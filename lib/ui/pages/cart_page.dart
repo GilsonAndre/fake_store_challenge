@@ -20,52 +20,46 @@ class CartPage extends StatelessWidget {
       //Button with checkOut name for go to payment page but if is empty you cant go
       bottomSheet: SizedBox(
         width: MediaQuery.of(context).size.width,
-        height: 90.h,
+        height: 60.h,
         child: Padding(
           padding: EdgeInsets.only(left: 10.0.h, top: 5.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Text(
-                    'Total: ',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  BlocBuilder<CartBloc, CartState>(
-                    builder: (context, state) {
-                      return Text(
-                        'US\$ ${state.cartList},00',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      );
-                    },
-                  ),
-                ],
-              ),
               BlocBuilder<CartBloc, CartState>(
                 builder: (context, state) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          if (state.productId.isEmpty) {
-                            //toastInfo for show error
-                            toastInfo(msg: Strings.toastInfoEmptyCart);
-                          } else {
-                            //Go to paymentPage
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const PaymentPage(),
-                            ));
-                          }
-                        },
-                        child: Text(
-                          'Checkout',
-                          style: Theme.of(context).textTheme.titleMedium,
+                  return Row(
+                    children: [
+                      Text(
+                        'US\$ ${state.cartList},00',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: OutlinedButton(
+                              onPressed: () {
+                                if (state.productId.isEmpty) {
+                                  //toastInfo for show error
+                                  toastInfo(msg: Strings.toastInfoEmptyCart);
+                                } else {
+                                  //Go to paymentPage
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const PaymentPage(),
+                                  ));
+                                }
+                              },
+                              child: Text(
+                                'Checkout',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   );
                 },
               ),
@@ -81,38 +75,53 @@ class CartPage extends StatelessWidget {
             return ListView.builder(
               itemCount: state.productId.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  onTap: () {
-                    //todo: named routes
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => DetailPage(
-                          id: state.productId[index].id!,
-                          title: state.productId[index].title!,
-                          price: state.productId[index].price.toString(),
-                          description: state.productId[index].description!,
-                          images: state.productId[index].images!,
-                          product: state.productId.first,
+                return Card(
+                  child: ListTile(
+                    contentPadding: EdgeInsets.fromLTRB(
+                      10.w,
+                      25.h,
+                      10.w,
+                      25.h,
+                    ),
+                    onTap: () {
+                      //todo: named routes
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                            id: state.productId[index].id!,
+                            title: state.productId[index].title!,
+                            price: state.productId[index].price.toString(),
+                            description: state.productId[index].description!,
+                            images: state.productId[index].images!,
+                            product: state.productId.first,
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                  title: Text(state.productId[index].title.toString()),
-                  subtitle: Text(
-                      'US\$ ${state.productId[index].price.toString()},00'),
-                  leading: Image.network(state.productId[index].images!.first),
-                  //remove and minus a product from cart
-                  trailing: IconButton(
-                    onPressed: () {
-                      context
-                          .read<CartBloc>()
-                          .add(RemoveFromProductCart(state.productId[index]));
-                      context
-                          .read<CartBloc>()
-                          .add(MinusFromProductCart(state.cartList));
-                      toastInfo(msg: Strings.toastInfoRemove);
+                      );
                     },
-                    icon: const Icon(Icons.remove_shopping_cart),
+                    title: Text(
+                      state.productId[index].title.toString(),
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    subtitle: Text(
+                      'US\$ ${state.productId[index].price.toString()},00',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    leading: Image.network(
+                      state.productId[index].images!.first,
+                    ),
+                    //remove and minus a product from cart
+                    trailing: IconButton(
+                      onPressed: () {
+                        context
+                            .read<CartBloc>()
+                            .add(RemoveFromProductCart(state.productId[index]));
+                        context
+                            .read<CartBloc>()
+                            .add(MinusFromProductCart(state.cartList));
+                        toastInfo(msg: Strings.toastInfoRemove);
+                      },
+                      icon: const Icon(Icons.remove_shopping_cart),
+                    ),
                   ),
                 );
               },
