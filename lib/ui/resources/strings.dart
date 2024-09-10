@@ -15,4 +15,6 @@ class Strings {
   static const String cartEmpty = 'Your cart is empty let\'s buy something';
   static const String errorMessage = 'Something went Wrong';
   static const String hintTextSearchPage = 'Classic';
+  static const String toastInfoAdd = 'Product Added to Cart';
+  static const String toastInfoRemove = 'product Removed from Cart';
 }

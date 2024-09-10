@@ -4,6 +4,7 @@ import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
 import 'package:fake_store_one/data/models/product_model.dart';
 import 'package:fake_store_one/ui/pages/cart_page.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
+import 'package:fake_store_one/ui/widgets/toast_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -144,6 +145,7 @@ class _DetailPageState extends State<DetailPage> {
                                       .add(AddProductCart(widget.product));
                                   context.read<CartBloc>().add(
                                       SumFromProductCart(widget.price.length));
+                                  toastInfo(msg: Strings.addToCart);
                                 },
                                 child: Row(
                                   children: [
@@ -171,7 +173,7 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                             Expanded(
                               child: OutlinedButton(
-                                //todo: go to payment page 
+                                //todo: go to payment page
                                 onPressed: () {},
                                 child: Text(
                                   Strings.buyNow,
