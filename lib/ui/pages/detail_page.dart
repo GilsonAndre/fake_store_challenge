@@ -47,7 +47,7 @@ class _DetailPageState extends State<DetailPage> {
                 SizedBox(
                   width: 10.w,
                 ),
-                const Text(Strings.detailPage),
+                const Text(Strings.detailPageAppBar),
                 Stack(
                   children: [
                     Positioned(
@@ -145,7 +145,7 @@ class _DetailPageState extends State<DetailPage> {
                                       .add(AddProductCart(widget.product));
                                   context.read<CartBloc>().add(
                                       SumFromProductCart(widget.price.length));
-                                  toastInfo(msg: Strings.addToCart);
+                                  toastInfo(msg: Strings.toastInfoAdd);
                                 },
                                 child: Row(
                                   children: [

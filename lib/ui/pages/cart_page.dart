@@ -1,6 +1,8 @@
 import 'package:fake_store_one/data/blocs/bloc_cart/bloc/cart_bloc.dart';
 import 'package:fake_store_one/ui/pages/detail_page.dart';
+import 'package:fake_store_one/ui/pages/payment_page.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
+import 'package:fake_store_one/ui/widgets/toast_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +14,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(Strings.cart),
+        title: const Text(Strings.cartAppBar),
       ),
       //Show how much you need pay
       //Button with checkOut name for go to payment page but if is empty you cant go
@@ -50,8 +52,12 @@ class CartPage extends StatelessWidget {
                         onPressed: () {
                           if (state.productId.isEmpty) {
                             //toastInfo for show error
+                            toastInfo(msg: Strings.toastInfoEmptyCart);
                           } else {
-                            //Go to Buy everything
+                            //Go to paymentPage
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const PaymentPage(),
+                            ));
                           }
                         },
                         child: Text(
@@ -68,7 +74,7 @@ class CartPage extends StatelessWidget {
         ),
       ),
       //show all products, price e photos in a listtile
-      //when you click you go to detail page if you want check anything before buy 
+      //when you click you go to detail page if you want check anything before buy
       body: BlocBuilder<CartBloc, CartState>(
         builder: (context, state) {
           if (state.productId.isNotEmpty) {
@@ -104,6 +110,7 @@ class CartPage extends StatelessWidget {
                       context
                           .read<CartBloc>()
                           .add(MinusFromProductCart(state.cartList));
+                      toastInfo(msg: Strings.toastInfoRemove);
                     },
                     icon: const Icon(Icons.remove_shopping_cart),
                   ),
