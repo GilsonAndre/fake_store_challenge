@@ -127,6 +127,12 @@ class ThemeApp {
           iconColor: WidgetStatePropertyAll(AppColors.darkPrimaryColor),
         ),
       ),
+      listTileTheme: const ListTileThemeData(
+          tileColor: AppColors.darkListTileBackGroundColor,
+          iconColor: AppColors.darkPrimaryColor),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: AppColors.darkListTileBackGroundColor,
+      ),
     );
   }
 }
