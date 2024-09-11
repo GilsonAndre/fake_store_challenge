@@ -73,7 +73,14 @@ class _HomePageState extends State<HomePage> {
             Container(
               height: 150.h,
               width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(color: Colors.grey),
+              decoration: const BoxDecoration(
+                  //color: Colors.grey,
+
+                  ),
+              child: Image.network(
+                'https://i.pinimg.com/564x/a4/8e/d8/a48ed8ca2b70671714b758351705d337.jpg',
+                fit: BoxFit.fitWidth,
+              ),
             ),
             SizedBox(height: 10.h),
             //shows every category
