@@ -3,6 +3,7 @@ import 'package:fake_store_one/data/blocs/bloc_cart/bloc/cart_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
 import 'package:fake_store_one/data/models/product_model.dart';
 import 'package:fake_store_one/ui/pages/cart_page.dart';
+import 'package:fake_store_one/ui/resources/colors.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/toast_info.dart';
 import 'package:flutter/material.dart';
@@ -161,7 +162,7 @@ class _DetailPageState extends State<DetailPage> {
                                     const Expanded(
                                       child: Icon(
                                         Icons.shopping_cart,
-                                        color: Colors.black,
+                                        color: AppColors.darkPrimaryColor
                                       ),
                                     ),
                                   ],

@@ -65,37 +65,35 @@ class ThemeApp {
   ThemeData themeDark() {
     return ThemeData(
       appBarTheme: const AppBarTheme(
-        color: AppColors.scaffoldBackGroundColor,
-      ),
-      scaffoldBackgroundColor: AppColors.scaffoldBackGroundColor,
-      textTheme: TextTheme(
-        titleMedium: const TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-        titleLarge: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-          overflow: TextOverflow.ellipsis,
-        ),
-        headlineSmall: const TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-        bodySmall: const TextStyle(
-          color: Colors.grey,
+          color: AppColors.darkBackGroundColor,
+          titleTextStyle:
+              TextStyle(color: AppColors.darkStringsColor, fontSize: 20)),
+      scaffoldBackgroundColor: AppColors.darkBackGroundColor,
+      textTheme: const TextTheme(
+        titleMedium: TextStyle(
+            fontWeight: FontWeight.bold, color: AppColors.darkStringsColor),
+        titleLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            overflow: TextOverflow.ellipsis,
+            color: AppColors.darkStringsColor),
+        headlineSmall: TextStyle(
+            fontWeight: FontWeight.bold, color: AppColors.darkStringsColor),
+        bodySmall: TextStyle(
+          color: AppColors.darkStringsColor,
           fontSize: 13,
         ),
-        bodyMedium: const TextStyle(
-          color: Colors.black,
+        bodyMedium: TextStyle(
+          color: AppColors.darkStringsColor,
           fontWeight: FontWeight.bold,
           fontSize: 13,
         ),
-        labelLarge: TextStyle(
-          color: Colors.grey[600],
-        ),
+        labelLarge: TextStyle(color: AppColors.darkStringsColor),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.black,
+        backgroundColor: AppColors.darkBackGroundColor,
+        unselectedItemColor: AppColors.darkStringsColor,
+        selectedItemColor: AppColors.darkStringsColor,
         showUnselectedLabels: true,
       ),
       outlinedButtonTheme: const OutlinedButtonThemeData(
@@ -110,13 +108,23 @@ class ThemeApp {
       ),
       //TextField
       inputDecorationTheme: const InputDecorationTheme(
+        hintStyle: TextStyle(
+          color: AppColors.darkStringsColor,
+        ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Colors.black,
+            color: AppColors.darkStringsColor,
           ),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.black),
+          borderSide: BorderSide(
+            color: AppColors.darkStringsColor,
+          ),
+        ),
+      ),
+      iconButtonTheme: const IconButtonThemeData(
+        style: ButtonStyle(
+          iconColor: WidgetStatePropertyAll(AppColors.darkPrimaryColor),
         ),
       ),
     );

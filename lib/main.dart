@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       ],
       child: ScreenUtilInit(
         child: MaterialApp(
-          theme: themeApp.themeLight(),
+          theme: themeApp.themeDark(),
           home: const AplicationPage(),
         ),
       ),
