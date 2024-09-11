@@ -27,7 +27,7 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         title: const TextField(
           decoration: InputDecoration(
-            hintText: Strings.hintTextSearchPage,
+             hintText: Strings.hintTextSearchPage,
           ),
         ),
       ),

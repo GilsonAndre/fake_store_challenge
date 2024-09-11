@@ -108,6 +108,7 @@ class ThemeApp {
       ),
       //TextField
       inputDecorationTheme: const InputDecorationTheme(
+        outlineBorder: BorderSide(),
         hintStyle: TextStyle(
           color: AppColors.darkStringsColor,
         ),

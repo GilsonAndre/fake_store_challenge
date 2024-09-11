@@ -9,6 +9,5 @@ class AppColors {
   static const Color darkStringsColor = Colors.grey;
   static const Color darkBackGroundColor = Color(0xFF263238);
   static const Color darkListTileBackGroundColor = Color(0xFF37474F);
-  static const Color darkIconColor = Color(0xFF131313);
   static const Color darkGreyColor = Color(0xFF9E9E9E);
 }
