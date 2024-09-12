@@ -3,6 +3,7 @@ import 'package:fake_store_one/data/blocs/bloc_cart/bloc/cart_bloc.dart';
 import 'package:fake_store_one/data/blocs/bloc_products/bloc/product_bloc.dart';
 import 'package:fake_store_one/data/models/product_model.dart';
 import 'package:fake_store_one/ui/pages/cart_page.dart';
+import 'package:fake_store_one/ui/pages/payment_page.dart';
 import 'package:fake_store_one/ui/resources/colors.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/toast_info.dart';
@@ -160,10 +161,8 @@ class _DetailPageState extends State<DetailPage> {
                                       width: 5.w,
                                     ),
                                     const Expanded(
-                                      child: Icon(
-                                        Icons.shopping_cart,
-                                        color: AppColors.darkPrimaryColor
-                                      ),
+                                      child: Icon(Icons.shopping_cart,
+                                          color: AppColors.darkPrimaryColor),
                                     ),
                                   ],
                                 ),
@@ -175,7 +174,11 @@ class _DetailPageState extends State<DetailPage> {
                             Expanded(
                               child: OutlinedButton(
                                 //todo: go to payment page
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const PaymentPage(),
+                                  ));
+                                },
                                 child: Text(
                                   Strings.buyNow,
                                   style:

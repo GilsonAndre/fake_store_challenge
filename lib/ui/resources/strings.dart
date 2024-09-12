@@ -4,6 +4,7 @@ class Strings {
   static const String detailPageAppBar = 'Detail Product';
   static const String cartAppBar = 'Cart';
   static const String paymentAppBar = 'Payment';
+  static const String profileAppBar = 'Profile';
   //BottomNavigator label
   static const String bottomBarHome = 'Home';
   static const String bottomBarSearch = 'Search';

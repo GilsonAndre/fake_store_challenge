@@ -6,6 +6,9 @@ class ThemeApp {
     return ThemeData(
       appBarTheme: const AppBarTheme(
         color: AppColors.scaffoldBackGroundColor,
+        titleTextStyle: TextStyle(
+          fontSize: 24,
+        ),
       ),
       scaffoldBackgroundColor: AppColors.scaffoldBackGroundColor,
       textTheme: TextTheme(
@@ -65,9 +68,12 @@ class ThemeApp {
   ThemeData themeDark() {
     return ThemeData(
       appBarTheme: const AppBarTheme(
-          color: AppColors.darkBackGroundColor,
-          titleTextStyle:
-              TextStyle(color: AppColors.darkStringsColor, fontSize: 20)),
+        color: AppColors.darkBackGroundColor,
+        titleTextStyle: TextStyle(
+          color: AppColors.darkStringsColor,
+          fontSize: 24,
+        ),
+      ),
       scaffoldBackgroundColor: AppColors.darkBackGroundColor,
       textTheme: const TextTheme(
         titleMedium: TextStyle(

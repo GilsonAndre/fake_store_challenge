@@ -10,6 +10,9 @@ class PaymentPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(Strings.paymentAppBar),
       ),
+      body: const Center(
+        child: Text('We working in this page',),
+      ),
     );
   }
 }
