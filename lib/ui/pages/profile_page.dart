@@ -1,3 +1,4 @@
+import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,11 +36,11 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              listTile(
-                context,
-                'Gerenciamento de Conta',
-                () {},
-              ),
+              listTile(context, Strings.myProfileProfile, () {}),
+              listTile(context, Strings.myPurchasesProfile, () {}),
+              listTile(context, Strings.messagesProfile, () {}),
+              listTile(context, Strings.locationProfile, () {}),
+              listTile(context, Strings.settingsProfile, () {}),
             ],
           ),
         ),

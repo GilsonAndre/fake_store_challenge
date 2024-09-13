@@ -22,4 +22,11 @@ class Strings {
   static const String toastInfoRemove = 'product Removed from Cart';
   static const String toastInfoEmptyCart =
       'Cart is empty you need add some products';
+  //Profile page
+  static const String myProfileProfile = 'My Profile';
+  static const String myPurchasesProfile = 'My Purchases';
+  static const String messagesProfile = 'Messages';
+  static const String locationProfile = 'Location';
+  static const String settingsProfile = 'Settings';
+
 }
