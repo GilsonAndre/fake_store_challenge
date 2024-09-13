@@ -1,3 +1,4 @@
+import 'package:fake_store_one/ui/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,21 +35,10 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 10.0.h),
-                child: ListTile(
-                  onTap: () {},
-                  contentPadding: EdgeInsets.only(
-                    bottom: 5.h,
-                    top: 5.h,
-                    left: 10.w,
-                  ),
-                  title: Text(
-                    'Gerenciamento de Conta',
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined),
-                ),
+              listTile(
+                context,
+                'Gerenciamento de Conta',
+                () {},
               ),
             ],
           ),
