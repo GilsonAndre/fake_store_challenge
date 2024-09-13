@@ -26,6 +26,34 @@ class ProfilePage extends StatelessWidget {
           )
         ],
       ),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 10.0.h),
+                child: ListTile(
+                  onTap: () {},
+                  contentPadding: EdgeInsets.only(
+                    bottom: 5.h,
+                    top: 5.h,
+                    left: 10.w,
+                  ),
+                  title: Text(
+                    'Gerenciamento de Conta',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  trailing: const Icon(Icons.arrow_forward_ios_outlined),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
