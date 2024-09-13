@@ -8,6 +8,7 @@ class ThemeApp {
         color: AppColors.scaffoldBackGroundColor,
         titleTextStyle: TextStyle(
           fontSize: 24,
+          color: Colors.black
         ),
       ),
       scaffoldBackgroundColor: AppColors.scaffoldBackGroundColor,
