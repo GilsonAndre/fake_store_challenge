@@ -28,5 +28,4 @@ class Strings {
   static const String messagesProfile = 'Messages';
   static const String locationProfile = 'Location';
   static const String settingsProfile = 'Settings';
-
 }

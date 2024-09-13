@@ -1,3 +1,4 @@
+import 'package:fake_store_one/ui/resources/colors.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
@@ -12,20 +13,10 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Profile'),
         actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Container(
-              height: 80.h,
-              width: 80.w,
-               margin: EdgeInsets.only(bottom: 3.h),
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: NetworkImage(
-                      'https://www.racasdecachorro.com.br/wp-content/uploads/2019/04/683-golden-37260766.jpg'),
-                ),
-              ),
-            ),
+          Switch(
+            value: true,
+            onChanged: (value) {},
+            activeTrackColor: AppColors.darkPrimaryColor,
           )
         ],
       ),
@@ -34,9 +25,23 @@ class ProfilePage extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              SizedBox(
-                height: 20.h,
+              SizedBox(height: 10.h),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 100.h,
+                  width: 100.w,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(
+                          'https://www.racasdecachorro.com.br/wp-content/uploads/2019/04/683-golden-37260766.jpg',
+                        ),
+                        fit: BoxFit.cover),
+                  ),
+                ),
               ),
+              SizedBox(height: 10.h),
               listTile(context, Strings.myProfileProfile, () {}),
               listTile(context, Strings.myPurchasesProfile, () {}),
               listTile(context, Strings.messagesProfile, () {}),
