@@ -1,5 +1,7 @@
 part of 'switch_bloc.dart';
 
-abstract class SwitchState {}
+class SwitchState {
+  final bool switchButton;
 
-class SwitchInitial extends SwitchState {}
+  SwitchState({this.switchButton = false});
+}

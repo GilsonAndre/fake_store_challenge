@@ -1,7 +1,9 @@
+import 'package:fake_store_one/data/blocs/bloc_switch/bloc/switch_bloc.dart';
 import 'package:fake_store_one/ui/resources/colors.dart';
 import 'package:fake_store_one/ui/resources/strings.dart';
 import 'package:fake_store_one/ui/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -13,11 +15,17 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(Strings.profileAppBar),
         actions: [
-          Switch(
-            value: true,
-            onChanged: (value) {},
-            activeTrackColor: AppColors.darkPrimaryColor,
-          )
+          BlocBuilder<SwitchBloc, SwitchState>(
+            builder: (context, state) {
+              return Switch(
+                value: state.switchButton,
+                onChanged: (value) {
+                  context.read<SwitchBloc>().add(SwitchThemeEvent(value));
+                },
+                activeTrackColor: AppColors.darkPrimaryColor,
+              );
+            },
+          ),
         ],
       ),
       body: SingleChildScrollView(

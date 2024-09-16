@@ -4,4 +4,8 @@ abstract class SwitchEvent {
   const SwitchEvent();
 }
 
-class SwitchThemeEvent extends SwitchEvent {}
+class SwitchThemeEvent extends SwitchEvent {
+  final bool switchButton;
+
+  SwitchThemeEvent(this.switchButton);
+}
